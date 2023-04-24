@@ -1,12 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box {
+            border: 1px dotted black;
+        }
+
+        .container-box {
+            margin: 20px;
+        }
+
+        .playground-box {
+            border: 1px dotted black;
+            padding: 15px;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <h1>Box Model</h1>
+    <div class="box">
+        <div class="container" style="
+    margin: 20px;
+    border: 20px solid pink;
+    ">
+            <div class="box-container" style="
+        padding: 30px;
+        border: 30px solid red;
+        background-color: orange;">
+                <div class="box-content" style="
+            background-color: green;
+            ">
+                    Simple Box
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>CSS Display</h1>
+    <h2>inline</h2>
+    <div class="playground-box">
+        <div class="inline" style="background-color: red;">inline text1</div>
+        <div class="inline" style="background-color: blue;">inline text2</div>
+        <div class="inline" style="background-color: yellow;">inline text3</div>
+        <div class="inline" style="background-color: orange;">inline text4</div>
+    </div>
+    <h2>block</h2>
+    <div class="playground-box">
+        <div class="block" style="background-color: red;">block text1</div>
+        <div class="block" style="background-color: blue;">block text2</div>
+        <div class="block" style="background-color: yellow;">block text3</div>
+        <div class="block" style="background-color: orange;">block text4</div>
+    </div>
+    <h2>inline-block</h2>
+    <div class="playground-box">
+        <div class="inline-block" style="background-color: red;">apple</div>
+        <div class="inline-block" style="background-color: blue;">mango</div>
+        <div class="inline-block" style="background-color: yellow;">melon</div>
+        <div class="inline-block" style="background-color: orange;">orange</div>
+    </div>
+    <h2>none</h2>
+    <div class="playground-box">
+        <div class="inline-block" style="background-color: red;">apple</div>
+        <div class="inline-block" style="background-color: blue; display: none;">mango</div>
+        <div class="inline-block" style="background-color: yellow;">melon</div>
+        <div class="inline-block" style="background-color: orange;">orange</div>
+    </div>
+    <h2>display:none vs visibility:hidden</h2>
+    <div class="playground-box">
+        <div class="inline-block" style="background-color: red;">apple</div>
+        <div class="inline-block" style="background-color: blue; visibility: hidden;">mango</div>
+        <div class="inline-block" style="background-color: yellow;">melon</div>
+        <div class="inline-block" style="background-color: orange; display: none;">orange</div>
+    </div>
+
+    <h1>CSS Position</h1>
+    <h2>static</h2>
+    <div class="playground-box">
+        <div class="static-css" style="
+            position: static;
+            background-color: red;
+            width: 100px;
+            height: 100px;">
+        </div>
+    </div>
+
+    <h2>absolute</h2>
+    <h3>fixed width/height</h3>
+    <div class="playground-box">
+        <div class="absolute-css" style="
+            position: absolute;
+            background-color: red;
+            opacity: 0.5;
+            width: 100px;
+            height: 100px;">
+        </div>
+    </div>
+
+    <h3>no width/height</h3>
+    <div class="playground-box">
+        <div class="absolute-css" style="
+            position: absolute;
+            border: 1px solid red;
+            width: 100%;">
+        </div>
+    </div>
+
+    <h3>fixed width/height + right/top</h3>
+    <div class="playground-box">
+        <div style="
+            background-color: aliceblue;
+            width: 250px;
+            height: 250px;
+            position: relative;">
+            <div class="absolute-css" style="
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 25px;">
+                X
+            </div>
+        </div>
+    </div>
+    <h2>Fixed</h2>
+    <div style="
+        position:fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background:rgba(0, 0, 0, 0.5);">
+        <div style="
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%);
+        background-color: pink;
+        color: white;
+        width: 500px;
+        text-align: center;
+        font-size: 60px;
+        ">
+            Songkran festival 2023
+        </div>
+    </div>
 </body>
+
 </html>
