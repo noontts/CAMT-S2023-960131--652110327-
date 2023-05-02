@@ -39,6 +39,7 @@
         flex-direction: column;
         margin: 15px;
         border: 1px solid black;
+        border-bottom: none;
         width: 80px;
       }
       .menu-item{
@@ -54,7 +55,7 @@
       <div class="menu-item">Menu 3</div>
       <div class="menu-item">Menu 4</div>
       <div class="menu-item">Menu 5</div>
-      <div class="menu-item" style="border-bottom: none;">Last Menu</div>
+      <div class="menu-item">Last Menu</div>
     </div>
   </div>
 
@@ -71,19 +72,17 @@
         height: 50px;
         width: 500px;
         justify-content: space-between;
+        align-items: center;
         margin: 15px;
       }
       .header-content{
         text-align: center;
-        margin: 15px;
       }
       .header-content-left{
         margin-left: 8px;
-        margin-top: 10px;
       }
       .header-content-right{
         margin-right: 8px;
-        margin-top: 10px;
       }
       .header-container img{
         width: 30px;
@@ -112,10 +111,10 @@
         width: 400px;
         height: 80px;
         margin: 15px;
+        align-items: center;
       }
       .navigation-item{
         text-align: center;
-        margin-top: 19px;
       }
       .navigation-item-icon img{
         width: 20px;
@@ -161,13 +160,12 @@
       .card-list-container{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
       }
       .card-container{
         background-color: white;
         width: 250px;
         height: 400px;
-        margin: 20px;
+        margin: 10px;
       }
       .card-content-image-section img{
         width: 100%;
@@ -377,23 +375,25 @@
   <img src="../images/layouts/sidebar.png">
   <br>
   <h3>playground</h3>
-  <div class="playground">
+  <div class="playground" style="height: 600px
+  ;">
     <style>
       .sidebar-container{
         border: 1px solid black;
-        margin: 15px;
         display: flex;
         flex-direction: column;
-        width: 150px;
+        width: 200px;
+        height: 100%;
+        background-color: white;
       }
       .sidebar-profile-section{
         border-bottom: 1px solid black;
-        font-size: larger;
+        font-size: 25px;
         font-weight: bolder;
         padding: 4px;
       }
       .sidebar-menu-section{
-        height: 200px;
+        flex-grow: 1;
       }
       .sidebar-menu-item{
         padding: 4px;
