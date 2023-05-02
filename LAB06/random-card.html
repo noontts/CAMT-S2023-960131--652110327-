@@ -19,7 +19,7 @@
         .card-container {
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: center;
             width: 200px;
             height: 300px;
             background-color: white;
@@ -54,20 +54,20 @@
     <div class="poker-game-container">
         <div class="poker-game">
             <div class="card-container">
-                <div class="card-type">A</div>
-                <div class="card-number">1</div>
+                <div class="card-type"></div>
+                <div class="card-number"></div>
             </div>
             <div class="card-container">
-                <div class="card-type">B</div>
-                <div class="card-number">2</div>
+                <div class="card-type"></div>
+                <div class="card-number"></div>
             </div>
             <div class="card-container">
-                <div class="card-type">C</div>
-                <div class="card-number">3</div>
+                <div class="card-type"></div>
+                <div class="card-number"></div>
             </div>
             <div class="card-container">
-                <div class="card-type">D</div>
-                <div class="card-number">4</div>
+                <div class="card-type"></div>
+                <div class="card-number"></div>
             </div>
         </div>
         <div class="button-rand">
@@ -93,16 +93,16 @@
     const typeElement = document.querySelectorAll(".card-type");
     const numberElement = document.querySelectorAll(".card-number");
 
-    console.log(typeElement , numberElement);
+    console.log(typeElement, numberElement);
     window.onload = randomCard();
     function randomCard() {
-        for(let i = 0; i < containerElement.length; i++){
+        for (let i = 0; i < containerElement.length; i++) {
             let randType = CARD_TYPE[random(CARD_TYPE.length)];
             let randNum = CARD_NUMBER[random(CARD_NUMBER.length)]
-                typeElement[i].style.color = "black";
-                numberElement[i].style.color = "black";
-                containerElement[i].style.border = "5px solid black"
-            if(randType === "♦" || randType === "♥"){
+            typeElement[i].style.color = "black";
+            numberElement[i].style.color = "black";
+            containerElement[i].style.border = "5px solid black"
+            if (randType === "♦" || randType === "♥") {
                 typeElement[i].style.color = "red";
                 numberElement[i].style.color = "red";
                 containerElement[i].style.border = "5px solid red"
