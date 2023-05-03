@@ -47,6 +47,42 @@
             font-size: 30px;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var buttonListen = document.getElementById("button-rand");
+            buttonListen.addEventListener("click", randomCard)
+            randomCard();
+        });
+        // card number and type
+        var CARD_TYPE = ['♣', '♦', '♥', '♠']
+        var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
+        // random function
+        // max: number > 0
+        // return [0, max -1]
+        function random(max) {
+            return parseInt(Math.random() * max) % max
+        }
+
+        function randomCard() {
+            var containerElement = document.querySelectorAll(".card-container");
+            var typeElement = document.querySelectorAll(".card-type");
+            var numberElement = document.querySelectorAll(".card-number");
+            for (let i = 0; i < containerElement.length; i++) {
+                let randType = CARD_TYPE[random(CARD_TYPE.length)];
+                numberElement[i].innerText = CARD_NUMBER[random(CARD_NUMBER.length)];
+                containerElement[i].style.color = "black";
+                containerElement[i].style.border = "5px solid black"
+
+                if (randType === "♦" || randType === "♥") {
+                    containerElement[i].style.color = "red"
+                    containerElement[i].style.border = "5px solid red";
+                }
+
+                typeElement[i].innerText = randType;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -74,44 +110,4 @@
         </div>
     </div>
 </body>
-<script>
-    // card number and type
-    var CARD_TYPE = ['♣', '♦', '♥', '♠']
-    var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-
-    // random function
-    // max: number > 0
-    // return [0, max -1]
-    function random(max) {
-        return parseInt(Math.random() * max) % max
-    }
-    const buttonListen = document.getElementById("button-rand");
-    buttonListen.addEventListener("click", randomCard)
-
-    const containerElement = document.querySelectorAll(".card-container");
-    const typeElement = document.querySelectorAll(".card-type");
-    const numberElement = document.querySelectorAll(".card-number");
-
-    console.log(typeElement, numberElement);
-
-    window.onload = randomCard();
-
-    function randomCard() {
-        for (let i = 0; i < containerElement.length; i++) {
-            let randType = CARD_TYPE[random(CARD_TYPE.length)];
-            numberElement[i].innerText = CARD_NUMBER[random(CARD_NUMBER.length)];
-            containerElement[i].style.color = "black";
-            containerElement[i].style.border = "5px solid black"
-
-            if (randType === "♦" || randType === "♥") {
-                containerElement[i].style.color = "red"
-                containerElement[i].style.border = "5px solid red";
-            }
-            
-            typeElement[i].innerText = randType;
-        }
-    }
-
-</script>
-
 </html>
