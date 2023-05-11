@@ -181,21 +181,20 @@
         { value: ['♠', 'K'], isFaceDown: false },
     ]
 
-    function randomCard(){
-        for (let i = cardList.length-1; i > 0; i--) {
-            var randomBoolean = Math.random() >= 0.5;
-            if(randomBoolean >= 0.5){
+    function shuffleCard() {
+        for (let i = cardList.length - 1; i > 0; i--) {
+            var randomBoolean = Math.random() * 2;
+            if (randomBoolean >= 0.5) {
                 cardList[i].isFaceDown = true;
-            }else{
+            } else {
                 cardList[i].isFaceDown = false;
             }
-            const j = Math.floor(Math.random() * (i+1));
+            const j = Math.floor(Math.random() * (i + 1)); //CARD_LIST - CARD_LIST[NOW]
             const temp = cardList[i];
             cardList[i] = cardList[j];
             cardList[j] = temp;
         }
     }
-
 
     function htmlToElem(html) {
         let temp = document.createElement('template');
@@ -205,35 +204,50 @@
     }
 
     function renderCardList() {
-        randomCard();
         // TODO: define cardZoneElm here
-        const cardZoneElm = document.getElementsByClassName("card-zone");
+        const cardZoneElm = document.getElementsByClassName("card-zone")[0];
         // before append any DOM(s), you need to clear all children of cardZoneElm
-        cardZoneElm[0].innerHTML = "";
+        cardZoneElm.innerHTML = "";
         for (var idx = 0; idx < cardList.length; idx++) {
             // TODO:
             // if isFaceDown is true, create a card component with 'face-down' class
-            if (cardList[idx].isFaceDown === true) {
+            if (cardList[idx].isFaceDown) {
                 cardElm = htmlToElem(
-                    '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
-                );
-                cardZoneElm[0].append(cardElm);
+                    '<div class="card face-down">' +
+                        '<div class="card-title"></div>' +
+                        '<div class="card-body">' +
+                        '&#63;' +
+                        '</div>' +
+                    '</div>'
+                )
+                cardZoneElm.append(cardElm);
             } else {
                 cardElm = htmlToElem(
-                    '<div class="card"><div class="card-title">' + cardList[idx].value[0] + '</div><div class="card-body">' + cardList[idx].value[1] + '</div></div>'
+                    '<div class="card">' +
+                        '<div class="card-title">' +
+                        cardList[idx].value[0] +
+                        '</div><div class="card-body">' +
+                        cardList[idx].value[1] +
+                    '   </div>' +
+                    '</div>'
                 );
+
                 if (cardList[idx].value[0] == "♥" || cardList[idx].value[0] == "♦") {
                     cardElm.style.color = "red";
                     cardElm.style.border = "2px solid red";
                 }
-                cardZoneElm[0].append(cardElm);
+                cardZoneElm.append(cardElm);
             }
         }
     }
-    window.onload = function(){
+    function newGame() {
+        shuffleCard();
         renderCardList();
-        const buttonRandom = document.getElementsByClassName("new-game-button");
-        buttonRandom[0].addEventListener("click", renderCardList);
+    }
+    window.onload = function () {
+        renderCardList();
+        const buttonRandom = document.getElementsByClassName("new-game-button")[0];
+        buttonRandom.addEventListener("click", newGame);
     };
 </script>
 
