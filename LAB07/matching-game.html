@@ -181,6 +181,7 @@
         { value: ['♠', 'K'], isFaceDown: false },
     ]
 
+    
     function shuffleCard() {
         for (let i = cardList.length - 1; i > 0; i--) {
             var randomBoolean = Math.random() * 2;
@@ -196,6 +197,7 @@
         }
     }
 
+   
     function htmlToElem(html) {
         let temp = document.createElement('template');
         html = html.trim(); // Never return a space text node as a result
