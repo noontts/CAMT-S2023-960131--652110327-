@@ -1,6 +1,6 @@
 /* open crudcrud.com and then replace ID and resource name. */
 // BEGIN: configuration zone
-var CRUD_CURD_ID = "0bae8318f2f7413b996d739b1ffc60bc";
+var CRUD_CURD_ID = "87622f44db054fca8d3c5f211a38ee0d";
 var CRUD_CURD_RESOURCE_NAME = "todo";
 var CURD_CURD_API_ENDPOINT =
   "https://crudcrud.com/api/" + CRUD_CURD_ID + "/" + CRUD_CURD_RESOURCE_NAME;
@@ -82,8 +82,16 @@ function renderTodoList() {
   for (var idx = 0; idx < APPLICATION_STATE.todoList.length; idx++) {
     var todoItem = APPLICATION_STATE.todoList[idx];
     var todoItemElm = htmlToElem(
-      '<div class="todo-item">' + todoItem.name + "</div>"
+      '<div class="todo-item">'+ todoItem.name +'<button onclick="delSound()" class="todo-delete-button">Delete</button>'+"</div>"
     );
+    var deleteButton = todoItemElm.querySelector(".todo-delete-button");
+    deleteButton.addEventListener("click", (function (id) {
+      return function () {
+        deleteTodoList(id, function () {
+          refreshTodoList();
+        });
+      };
+    })(todoItem._id));
     todoListElm.append(todoItemElm);
   }
 }
@@ -119,13 +127,11 @@ window.onload = function () {
   bindEvents();
   refreshTodoList();
 };
-const deleteBtn = document.getElementById("todo-delete-button");
-deleteBtn.addEventListener("click",() =>{
-  deleteTodoList();
-})
 // END: UI Control and logic zone
+
 var addSong = document.getElementById("myAudio");
 var deleteSong = document.getElementById("delAudio");
+
 function addSound(){
   deleteSong.play();
 }

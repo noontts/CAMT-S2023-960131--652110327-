@@ -1,7 +1,5 @@
 <html>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <audio id="myAudio" src="../images/Conga.wav"></audio>
-  <audio id="delAudio" src="../images/Rim.wav"></audio>
 <style>
   *{
     font-family: "Roboto", sans-serif;
@@ -41,6 +39,7 @@
     margin-top: 10px;
     width: 400px;
     height: fit-content;
+    align-items: center;
   }
   .todo-item-container{
     margin-top: 40px;
@@ -66,18 +65,29 @@
   .add{
     background-color: rgb(81, 230, 35);
   }
-  .delete{
+  .todo-delete-button{
     background-color: red;
+    margin-left: 5px;
+    width: 70px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5%;
+    color: white;
+  }
+  .todo-delete-button:hover{
+    color: black;
+    opacity: 0.9;
   }
 </style>
 
 <body>
+  <audio id="myAudio" src="../images/Conga.wav"></audio>
+  <audio id="delAudio" src="../images/Rim.wav"></audio>
   <div class="container">
     <h1>Todo-List</h1>
     <div class="user-input">
       <input type="text" id="todo-input" placeholder="type something todo..">
       <button id="todo-add-button" class="add" onclick="addSound()">Add</button>
-      <button id="todo-delete-button" class="delete" onclick="delSound()">Delete</button>
     </div>
     <div id="todo-list-container" class="todo-list-container">
       <div class="todo-item-container">
